@@ -607,7 +607,7 @@
         function handleInput(e) {
             const input = e.target;
             input.value = input.value.toUpperCase();
-            
+
             // Move to next cell
             if (input.value.length === 1) {
                 const allRowInputs = getRowInputs(parseInt(input.dataset.row));
@@ -616,8 +616,38 @@
                     allRowInputs[currentIdx + 1].focus();
                 }
             }
-            
+
             updateProgress();
+            saveProgress();
+        }
+
+        // Save all inputs to localStorage
+        function saveProgress() {
+            const data = {};
+            allInputs.forEach(input => {
+                if (!input.readOnly) {
+                    const key = `${input.dataset.row}-${input.dataset.col}`;
+                    data[key] = input.value;
+                }
+            });
+            localStorage.setItem('krustvards_progress', JSON.stringify(data));
+        }
+
+        // Load inputs from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('krustvards_progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                allInputs.forEach(input => {
+                    if (!input.readOnly) {
+                        const key = `${input.dataset.row}-${input.dataset.col}`;
+                        if (data[key]) {
+                            input.value = data[key];
+                        }
+                    }
+                });
+                updateProgress();
+            }
         }
         
         function handleKeydown(e) {
@@ -737,6 +767,7 @@
             document.getElementById('message').className = 'message';
             document.getElementById('secret').classList.remove('show');
             updateProgress();
+            localStorage.removeItem('krustvards_progress');
         }
         
         // Snowflakes
@@ -756,6 +787,7 @@
         
         // Initialize
         createGrid();
+        loadProgress();
         createSnowflakes();
     </script>
 </body>
