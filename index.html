@@ -762,15 +762,10 @@
                         input.dataset.letterIdx = letterIdx;
                         input.dataset.correctLetter = rowData.word[letterIdx];
                         
-                        if (isCenter) {
-                            input.value = rowData.word[letterIdx];
-                            input.readOnly = true;
-                        } else {
-                            totalLetters++;
-                            input.addEventListener('input', handleInput);
-                            input.addEventListener('keydown', handleKeydown);
-                            input.addEventListener('focus', () => highlightClue(rowIndex));
-                        }
+                        totalLetters++;
+                        input.addEventListener('input', handleInput);
+                        input.addEventListener('keydown', handleKeydown);
+                        input.addEventListener('focus', () => highlightClue(rowIndex));
                         
                         allInputs.push(input);
                         
