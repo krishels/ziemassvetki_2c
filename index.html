@@ -536,7 +536,8 @@
             border-left-color: #333;
         }
 
-        .elf-container:hover .elf-tooltip {
+        .elf-container:hover .elf-tooltip,
+        .elf-tooltip.auto-show {
             opacity: 1;
             visibility: visible;
         }
@@ -1027,6 +1028,23 @@
             }
         }
         
+        // Auto-show elf tooltip every 30 seconds
+        function showElfTooltip() {
+            const tooltip = document.querySelector('.elf-tooltip');
+            const menu = document.getElementById('elfMenu');
+            // Don't show if menu is open
+            if (menu.classList.contains('show')) return;
+
+            tooltip.classList.add('auto-show');
+            setTimeout(() => {
+                tooltip.classList.remove('auto-show');
+            }, 4000);
+        }
+
+        // Show tooltip on load and every 30 seconds
+        setTimeout(showElfTooltip, 2000);
+        setInterval(showElfTooltip, 30000);
+
         // Initialize
         createGrid();
         loadProgress();
