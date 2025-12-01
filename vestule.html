@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vēstule no Rūķa Zinīša</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap&subset=latin-ext');
+
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14pt;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a4a6e 0%, #0d3349 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .letter-container {
+            max-width: 700px;
+            background: #fffef5;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .letter-header {
+            background: linear-gradient(135deg, #c41e3a, #8b0000);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .letter-header h1 {
+            font-family: 'Comfortaa', cursive;
+            font-size: 24pt;
+            margin-bottom: 5px;
+        }
+
+        .letter-header .subtitle {
+            font-size: 12pt;
+            opacity: 0.9;
+        }
+
+        .letter-body {
+            padding: 35px 40px;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c41e3a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .greeting {
+            font-family: 'Comfortaa', cursive;
+            font-size: 16pt;
+            color: #c41e3a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .letter-body p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fff3cd 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .closing {
+            margin-top: 30px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .closing p {
+            margin-bottom: 5px;
+            text-align: right;
+        }
+
+        .signature {
+            font-family: 'Comfortaa', cursive;
+            font-size: 18pt;
+            color: #c41e3a;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .decorations {
+            position: absolute;
+            font-size: 24pt;
+            opacity: 0.15;
+        }
+
+        .deco-1 { top: 80px; left: 15px; }
+        .deco-2 { top: 150px; right: 15px; }
+        .deco-3 { bottom: 100px; left: 20px; }
+        .deco-4 { bottom: 50px; right: 25px; }
+
+        .letter-footer {
+            background: #228b22;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20pt;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .letter-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="decorations deco-1">❄️</div>
+        <div class="decorations deco-2">🎄</div>
+        <div class="decorations deco-3">⭐</div>
+        <div class="decorations deco-4">🎁</div>
+
+        <div class="letter-header">
+            <h1>Vēstule no Ziemeļpola</h1>
+            <div class="subtitle">Slepena ziņa 2.c klasei</div>
+        </div>
+
+        <div class="letter-body">
+            <div class="greeting">2.c klases gudriniekiem!</div>
+
+            <p>
+                Skaistākajā svētku gaidīšanas laikā es, <span class="highlight">Rūķis Zinītis</span>,
+                nolēmu jūs visus mazliet pārsteigt! Man ir sagatavots viens kopīgs,
+                <span class="highlight">superslepens</span> un ļoti svarīgs uzdevums.
+            </p>
+
+            <p>
+                Es jau zinu, ka jūs, <strong>2.c klases gudrinieki</strong>, noteikti ar to tiksiet galā –
+                jo gudrākie bērni taču mācās tieši šajā klasē!
+            </p>
+
+            <div class="warning">
+                Kad būsiet veiksmīgi paveikuši uzdevumu, drīkstat sevi apbalvot ar mazu, gardu našķīti.
+                Bet tikai tad, kad uzdevums tiešām padarīts – <strong>Rūķis redz visu!</strong>
+            </div>
+
+            <p>
+                Lai izdodas un lai priecīgi svētki!
+            </p>
+
+            <div class="closing">
+                <p>Ar sirsnīgiem sveicieniem,</p>
+                <div class="signature">Rūķis Zinītis</div>
+            </div>
+        </div>
+
+        <div class="letter-footer">
+            🎅 🎄 ❄️ 🎁 ⭐
+        </div>
+    </div>
+</body>
+</html>
