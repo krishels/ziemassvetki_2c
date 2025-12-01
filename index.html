@@ -185,7 +185,7 @@
         }
         
         .clue-group {
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
         
         .clue-group-title {
@@ -193,17 +193,17 @@
             color: #c41e3a;
             font-size: 1.1em;
             background: linear-gradient(90deg, #fff0f0, transparent);
-            padding: 8px 12px;
+            padding: 6px 12px;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             border-left: 4px solid #c41e3a;
         }
         
         .clue {
             display: flex;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
             align-items: flex-start;
-            padding: 8px;
+            padding: 5px 8px;
             border-radius: 8px;
             transition: background 0.2s;
             cursor: pointer;
@@ -517,11 +517,11 @@
             right: 80px;
             background: #333;
             color: white;
-            padding: 8px 14px;
+            padding: 10px 16px;
             border-radius: 8px;
             font-size: 13px;
             font-family: 'Nunito', sans-serif;
-            white-space: nowrap;
+            text-align: center;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
@@ -610,7 +610,7 @@
                 <div class="section-title">📝 Mīklas</div>
                 
                 <div class="clue-group">
-                    <div class="clue-group-title">🎁 ZIEMASSVĒTKU</div>
+                    <div class="clue-group-title">🎁 1. vārds</div>
                     <div class="clue" data-row="0" onclick="focusRow(0)"><span class="clue-num">1</span><span class="clue-text">Debesīs rāda ceļu, bet svētkos pārvācas uz eglītes galotni <span class="clue-hint">(8)</span></span></div>
                     <div class="clue" data-row="1" onclick="focusRow(1)"><span class="clue-num">2</span><span class="clue-text">Brūni cepumi ar kanēli un ingveru, bieži veidoti kā sirsniņas vai cilvēciņi <span class="clue-hint">(10)</span></span></div>
                     <div class="clue" data-row="2" onclick="focusRow(2)"><span class="clue-num">3</span><span class="clue-text">Trīs baltas bumbas viena uz otras, acis no oglēm, deguns oranžs <span class="clue-hint">(10)</span></span></div>
@@ -626,7 +626,7 @@
                 </div>
                 
                 <div class="clue-group">
-                    <div class="clue-group-title">⏰ GAIDĪŠANAS</div>
+                    <div class="clue-group-title">⏰ 2. vārds</div>
                     <div class="clue" data-row="13" onclick="focusRow(13)"><span class="clue-num">13</span><span class="clue-text">Zaļš koks, ko rotājam Ziemassvētkos <span class="clue-hint">(4)</span></span></div>
                     <div class="clue" data-row="14" onclick="focusRow(14)"><span class="clue-num">14</span><span class="clue-text">To dzied korī Ziemassvētku koncertā <span class="clue-hint">(7)</span></span></div>
                     <div class="clue" data-row="15" onclick="focusRow(15)"><span class="clue-num">15</span><span class="clue-text">Pozitīva emocija, ko jūtam svētkos <span class="clue-hint">(6)</span></span></div>
@@ -640,7 +640,7 @@
                 </div>
                 
                 <div class="clue-group">
-                    <div class="clue-group-title">🕐 LAIKS</div>
+                    <div class="clue-group-title">🕐 3. vārds</div>
                     <div class="clue" data-row="24" onclick="focusRow(24)"><span class="clue-num">23</span><span class="clue-text">Laba, priecīga sajūta sirdī <span class="clue-hint">(5)</span></span></div>
                     <div class="clue" data-row="25" onclick="focusRow(25)"><span class="clue-num">24</span><span class="clue-text">Dienas beigas, kad saule noriet <span class="clue-hint">(6)</span></span></div>
                     <div class="clue" data-row="26" onclick="focusRow(26)"><span class="clue-num">25</span><span class="clue-text">Pretējs aukstam <span class="clue-hint">(5)</span></span></div>
@@ -651,11 +651,6 @@
         </div>
         
 <div class="message" id="message"></div>
-        
-        <div class="secret-reveal" id="secret">
-            <h2>🎉 Apsveicam! Noslēpumainais vēstījums:</h2>
-            <p>ZIEMASSVĒTKU GAIDĪŠANAS LAIKS</p>
-        </div>
         
         <div class="footer">
             <p><strong>Padoms:</strong> Noklikšķini uz mīklas, lai pārietu uz attiecīgo rindu! Izmanto rūķīti labajā stūrī! 🎄</p>
@@ -681,7 +676,7 @@
         <div class="elf-button" id="elfButton" onclick="toggleElfMenu()">
             🎅
         </div>
-        <div class="elf-tooltip">Es esmu mazo rūķīšu palīgs. Klikšķini uz manis!</div>
+        <div class="elf-tooltip">Esmu mazo rūķīšu palīgs.<br>Klikšķini uz manis!</div>
     </div>
 
     <!-- Toast container -->
@@ -926,14 +921,10 @@
                 }
             });
 
-            const secret = document.getElementById('secret');
-
             if (correct === total) {
                 showToast('🎉 Lieliski! Visi ' + total + ' burti ir pareizi!', 'success');
-                secret.classList.add('show');
             } else {
                 showToast('📊 ' + correct + ' no ' + total + ' burtiem pareizi!', 'partial');
-                secret.classList.remove('show');
             }
 
             closeElfMenu();
@@ -966,7 +957,6 @@
                 }
             });
             document.getElementById('message').className = 'message';
-            document.getElementById('secret').classList.remove('show');
             updateProgress();
             localStorage.removeItem('krustvards_progress');
             showToast('🗑️ Viss notīrīts! Sāc no jauna!', 'clear');
@@ -1032,7 +1022,7 @@
             tooltip.classList.add('auto-show');
             setTimeout(() => {
                 tooltip.classList.remove('auto-show');
-            }, 4000);
+            }, 7000);
         }
 
         // Show tooltip on load and every 30 seconds
